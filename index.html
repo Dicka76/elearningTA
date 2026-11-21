@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>E-Learning Persiapan Lomba FRI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 0.3s ease;
+        }
+        h1,
+        h2,
+        h3,
+        .logo h2,
+        .card h1,
+        .card h2,
+        .card h3,
+        .quick-card h3,
+        .modul-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        body:has(#pageLogin.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageBeranda.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pagePanduan.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pagePilihLomba.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/1763067/pexels-photo-1763067.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageBelajar.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageModulList.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageModulDetail.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageResourceCenter.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/6238089/pexels-photo-6238089.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageFeedback.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageSertifikat.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/3768126/pexels-photo-3768126.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pageCompletion.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body:has(#pagePilihLombaTips.active-page) {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/1763067/pexels-photo-1763067.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a826;
+            border-radius: 10px;
+        }
+
+        .app-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            border-radius: 48px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 18px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo i {
+            font-size: 2.5rem;
+            color: #f9a826;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        .logo h2 {
+            color: white;
+            font-weight: 800;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .logo span {
+            background: linear-gradient(135deg, #f9a826, #e08e0e);
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            color: #1e2a36;
+            font-weight: 700;
+        }
+        .user-info {
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 18px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 14px;
+            margin: 16px 24px;
+            flex-wrap: wrap;
+        }
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 22px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.25s;
+            backdrop-filter: blur(4px);
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-btn:hover {
+            background: #f9a826;
+            color: #1e2a36;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: rippleAnim 0.5s linear;
+            pointer-events: none;
+        }
+        @keyframes rippleAnim {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        .btn,
+        .lomba-card,
+        .modul-card,
+        .nav-btn,
+        .quick-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .btn:active,
+        .lomba-card:active,
+        .modul-card:active,
+        .nav-btn:active,
+        .quick-card:active {
+            transform: scale(0.97);
+        }
+        .page {
+            padding: 34px 32px;
+            animation: fadeInUp 0.4s ease;
+            display: none;
+        }
+        .active-page {
+            display: block;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 36px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+        }
+        h1,
+        h2,
+        h3 {
+            color: #1e2a36;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .btn {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 10px 10px 0 0;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #f9a826, #e08e0e);
+            color: #1e2a36;
+        }
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(249, 168, 38, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #f9a826;
+            color: #f9a826;
+        }
+        .btn-outline:hover {
+            background: #f9a826;
+            color: #1e2a36;
+            transform: scale(1.02);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .grid-lomba {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 24px;
+        }
+        /* === Container khusus untuk Tips Juara agar rata tengah === */
+        #lombaTipsList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 24px;
+        }
+        #lombaTipsList .lomba-card {
+            flex: 0 0 260px;
+            max-width: 260px;
+        }
+        .lomba-card {
+            background: white;
+            border-radius: 28px;
+            padding: 20px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .lomba-card i {
+            font-size: 2.5rem;
+            color: #f9a826;
+            margin-bottom: 12px;
+        }
+        .lomba-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .lomba-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+            background: #fffaf2;
+        }
+        .modul-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
+            margin: 28px 0;
+        }
+        .modul-card {
+            background: linear-gradient(145deg, #ffffff, #fef7ed);
+            border-radius: 32px;
+            padding: 26px;
+            cursor: pointer;
+            border-left: 8px solid #f9a826;
+            transition: all 0.25s;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
+        .modul-card .modul-thumb {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .modul-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .modul-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+            background: #fffcf5;
+        }
+        .modul-detail {
+            background: white;
+            border-radius: 36px;
+            padding: 32px;
+            margin-top: 20px;
+        }
+        .modul-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 32px;
+            align-items: start;
+        }
+        .modul-detail-grid img {
+            width: 100%;
+            max-height: 260px;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+        }
+        .modul-text {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        .modul-text h3 {
+            margin-top: 0;
+        }
+        @media (max-width: 768px) {
+            .modul-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .modul-detail-grid img {
+                max-height: 200px;
+                margin: 0 auto;
+            }
+        }
+        .competition-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comp-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            background: #eef2f7;
+            color: #2c3e50;
+        }
+        .resource-tabs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            flex-wrap: wrap;
+        }
+        .resource-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+        .resource-tab.active {
+            border-bottom-color: #f9a826;
+            color: #f9a826;
+        }
+        .resource-panel {
+            display: none;
+        }
+        .resource-panel.active-panel {
+            display: block;
+        }
+        .resource-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 15px 0;
+        }
+        .resource-link {
+            background: #eef2f7;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .resource-link:hover {
+            background: #f9a826;
+            color: #1e2a36;
+            transform: translateY(-2px);
+        }
+        .desc-text {
+            font-size: 0.9rem;
+            margin-top: 8px;
+            color: #2c3e50;
+        }
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .alert-info {
+            background: #e3f2fd;
+            padding: 14px;
+            border-radius: 28px;
+            margin: 15px 0;
+            border-left: 5px solid #2196f3;
+        }
+        .hero-image {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .quick-access {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0 10px;
+        }
+        .quick-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 180px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .quick-card i {
+            font-size: 2.5rem;
+            color: #f9a826;
+            margin-bottom: 12px;
+        }
+        .quick-card h3 {
+            margin-bottom: 8px;
+        }
+        .quick-card p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .quick-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+        }
+        .certificate-wrapper {
+            background: linear-gradient(135deg, #fff9f0, #fff2e0);
+            border-radius: 48px;
+            padding: 48px 32px;
+            text-align: center;
+            border: 8px double #d4af37;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .certificate-wrapper:before {
+            content: "🎓";
+            font-size: 70px;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+            opacity: 0.2;
+        }
+        .certificate-wrapper:after {
+            content: "🏆";
+            font-size: 70px;
+            position: absolute;
+            bottom: -25px;
+            right: 20px;
+            opacity: 0.2;
+        }
+        .certificate-wrapper h1 {
+            font-size: 3.2rem;
+            color: #b8860b;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+        }
+        .certificate-wrapper h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin: 25px 0;
+            border-bottom: 2px solid #d4af37;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .certificate-wrapper p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        .thankyou-card {
+            background: #eaf7ea;
+            border-radius: 36px;
+            padding: 30px;
+            margin-top: 35px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .completion-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .lomba-description {
+            background: #fef5e8;
+            border-radius: 24px;
+            padding: 20px 24px;
+            margin: 0 0 20px 0;
+            border-left: 6px solid #f9a826;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .learn-container {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 30px;
+            align-items: start;
+        }
+        .learn-left .alert-info {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .learn-right img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+        @media (max-width: 768px) {
+            .learn-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .learn-right img {
+                max-height: 200px;
+            }
+        }
+        @media (max-width: 640px) {
+            .page {
+                padding: 20px 18px;
+            }
+            .btn {
+                padding: 10px 20px;
+            }
+            .certificate-wrapper h1 {
+                font-size: 2rem;
+            }
+            .certificate-wrapper h3 {
+                font-size: 1.4rem;
+            }
+            .logo i {
+                font-size: 1.8rem;
+            }
+            .logo h2 {
+                font-size: 1.2rem;
+            }
+            .quick-access {
+                flex-direction: column;
+                align-items: center;
+            }
+            .quick-card {
+                width: 100%;
+                max-width: 280px;
+            }
+            .modul-grid {
+                grid-template-columns: 1fr;
+            }
+            #lombaTipsList .lomba-card {
+                flex: 0 0 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="logo"><i class="fas fa-trophy"></i><h2>LombaFRI <span>E-Learning</span></h2></div>
+            <div class="user-info"><i class="fas fa-user-graduate"></i> <span id="userNameLabel">Guest</span></div>
+        </div>
+        <div class="nav-buttons" id="navButtons" style="display:none;">
+            <button class="nav-btn" onclick="navigateTo('beranda'); addRipple(event)"><i class="fas fa-home"></i> Beranda</button>
+            <button class="nav-btn" onclick="navigateTo('pilihLomba'); addRipple(event)"><i class="fas fa-trophy"></i> Pilih Lomba</button>
+            <button class="nav-btn" onclick="navigateTo('resourceCenter'); addRipple(event)"><i class="fas fa-book-open"></i> Resource Center</button>
+            <button class="nav-btn" onclick="logout(); addRipple(event)"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="pageLogin" class="page active-page">
+            <div class="card" style="max-width:500px; margin:40px auto; text-align:center;">
+                <i class="fas fa-chalkboard-user" style="font-size:4rem; color:#f9a826;"></i>
+                <h2>Selamat Datang</h2>
+                <p style="margin-bottom:20px;">E-Learning Persiapan Lomba Mahasiswa FRI</p>
+                <input type="text" id="loginName" placeholder="Masukkan Nama Lengkap" style="width:100%; padding:14px; border-radius:50px; border:1px solid #ccc; margin:16px 0; font-size:1rem;">
+                <button class="btn btn-primary" onclick="doLogin(event)"><i class="fas fa-arrow-right"></i> Masuk ke Platform</button>
+            </div>
+        </div>
+
+        <!-- BERANDA -->
+        <div id="pageBeranda" class="page">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mahasiswa berprestasi" class="hero-image">
+                <h1><i class="fas fa-graduation-cap"></i> Platform Persiapan Lomba FRI</h1>
+                <p>Sistem ini membantu mahasiswa Fakultas Rekayasa Industri mempersiapkan PKM (10 bidang), PPK Ormawa, dan P2MW. Alur belajar wajib: <strong>Pretest → Materi → Posttest</strong>. Setelah itu, dapatkan sertifikat dan feedback.</p>
+                <div class="quick-access">
+                    <div class="quick-card" onclick="goToQuick('modul')">
+                        <i class="fas fa-chalkboard"></i>
+                        <h3>📘 5 Tips Juara</h3>
+                        <p>Pelajari 5 modul strategis hasil wawancara dengan mahasiswa yang lolos pendanaan: mulai dari pemilihan topik, studi literatur, penyusunan proposal, bimbingan, hingga presentasi.</p>
+                    </div>
+                    <div class="quick-card" onclick="goToQuick('resource')">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>📁 Resource Center</h3>
+                        <p>Akses template proposal resmi, contoh proposal yang pernah menjadi juara nasional, serta timeline kegiatan lomba untuk memudahkan perencanaan Anda.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="navigateTo('panduan'); addRipple(event)"><i class="fas fa-play"></i> Mulai Belajar (Pilih Lomba)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANDUAN -->
+        <div id="pagePanduan" class="page">
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> Panduan Alur Belajar</h2>
+                <ol style="margin-left:24px; line-height:1.9; font-weight:500;">
+                    <li>Pilih jenis lomba (PKM, PPK Ormawa, P2MW).</li>
+                    <li>Kerjakan <strong>Pretest</strong> → konfirmasi selesai.</li>
+                    <li>Pelajari <strong>Materi</strong> → konfirmasi selesai.</li>
+                    <li>Kerjakan <strong>Posttest</strong> → konfirmasi selesai.</li>
+                    <li>Setelah menyelesaikan semua modul, Anda dapat mengunduh Sertifikat dan memberikan Feedback, atau kembali belajar lomba lain.</li>
+                </ol>
+                <button class="btn btn-primary" onclick="navigateTo('pilihLomba'); addRipple(event)">Pilih Lomba</button>
+            </div>
+        </div>
+
+        <!-- PILIH LOMBA (untuk belajar utama) -->
+        <div id="pagePilihLomba" class="page">
+            <div class="card">
+                <h2><i class="fas fa-flag-checkered"></i> Pilih Jenis Lomba</h2>
+                <div class="grid-lomba" id="lombaList"></div>
+            </div>
+        </div>
+
+        <!-- PILIH LOMBA TIPS (halaman pemilihan lomba khusus untuk 5 Tips Juara) -->
+        <div id="pagePilihLombaTips" class="page">
+            <div class="card">
+                <h2><i class="fas fa-chalkboard"></i> Pilih Jenis Lomba untuk 5 Tips Juara</h2>
+                <p>Pilih salah satu jenis lomba di bawah untuk melihat 5 modul strategisnya.</p>
+                <div id="lombaTipsList"></div>
+                <button class="btn btn-outline" onclick="navigateTo('beranda'); addRipple(event)">Kembali ke Beranda</button>
+            </div>
+        </div>
+
+        <!-- HALAMAN BELAJAR (dengan gambar) -->
+        <div id="pageBelajar" class="page">
+            <div class="card">
+                <h2 id="judulLombaBelajar"></h2>
+                <div class="learn-container">
+                    <div class="learn-left">
+                        <div id="lombaDeskripsiContainer" class="lomba-description"></div>
+                        <div class="alert-info"><i class="fas fa-info-circle"></i> Urutan wajib: <strong>Pretest → Materi → Posttest</strong>.</div>
+                        <div id="tombolBelajarWrapper" style="margin: 20px 0;"></div>
+                        <div style="margin-top:25px;"><button class="btn btn-outline" onclick="navigateTo('pilihLomba'); addRipple(event)">Ganti Lomba</button></div>
+                    </div>
+                    <div class="learn-right">
+                        <img id="lombaImage" src="" alt="Gambar lomba">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODUL LIST (untuk 5 Tips Juara) -->
+        <div id="pageModulList" class="page">
+            <div class="card">
+                <h2 id="modulListTitle"><i class="fas fa-chalkboard"></i> Modul Pembelajaran</h2>
+                <p>Pilih modul di bawah untuk mempelajari materi lengkap persiapan lomba.</p>
+                <div id="modulGridContainer" class="modul-grid"></div>
+                <button class="btn btn-outline" onclick="navigateTo('pilihLombaTips'); addRipple(event)">Kembali ke Pilih Lomba</button>
+                <button class="btn btn-outline" onclick="navigateTo('beranda'); addRipple(event)">Kembali ke Beranda</button>
+            </div>
+        </div>
+
+        <!-- DETAIL MODUL (tanpa navigasi sebelumnya/berikutnya) -->
+        <div id="pageModulDetail" class="page">
+            <div class="card">
+                <div id="modulDetailHeader" style="text-align: center; margin-bottom: 20px;">
+                    <!-- kompetisi nav dihilangkan agar tidak bolak-balik -->
+                    <span id="compBadge" class="comp-badge" style="font-size:1.2rem; padding:8px 24px;">PKM</span>
+                </div>
+                <div id="modulDetailContent"></div>
+                <div style="margin-top:30px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-outline" onclick="backToModulList(); addRipple(event)"><i class="fas fa-list"></i> Kembali ke Daftar Modul</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCE CENTER -->
+        <div id="pageResourceCenter" class="page">
+            <div class="card">
+                <h2><i class="fas fa-folder-open"></i> Resource Center</h2>
+                <div class="resource-tabs" id="resourceTabs">
+                    <div class="resource-tab active" data-tab="pkm">PKM</div>
+                    <div class="resource-tab" data-tab="ppk">PPK Ormawa</div>
+                    <div class="resource-tab" data-tab="p2mw">P2MW</div>
+                </div>
+                <div id="resourcePanels">
+                    <div class="resource-panel active-panel" id="panelPKM">
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/117l0phaAoWENesj09XYgCWIE_2v9AIuM" target="_blank" class="resource-link">📄 Template Proposal PKM</a></div>
+                        <div class="desc-text">Gunakan template resmi dari Belmawa untuk menyusun proposal PKM sesuai format yang ditentukan.</div>
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1GwnVtOygNjWuVWfNTHNJLb9jSfiPz6wY" target="_blank" class="resource-link">🏆 Contoh Proposal Juara PKM</a></div>
+                        <div class="desc-text">Pelajari proposal PKM yang berhasil menjadi juara nasional untuk memahami gaya penulisan dan inovasi yang disukai reviewer.</div>
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1mzmBBMszTcivLwXy9hn9ymXk6HD7AFx0" target="_blank" class="resource-link">📅 Timeline PKM</a></div>
+                        <div class="desc-text">Timeline berisi jadwal penting seperti pendaftaran, seleksi, pengumuman PKM.</div>
+                    </div>
+                    <div class="resource-panel" id="panelPPK">
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1QaMIfxSUj3AGuPjqht0wExKgGwrQq9Nv" target="_blank" class="resource-link">📄 Template Proposal PPK Ormawa</a></div>
+                        <div class="desc-text">Gunakan template resmi PPK Ormawa untuk program pengabdian masyarakat.</div>
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1dsR6WmoDVTgXDROxE-d3_MhsLvdVy4HM" target="_blank" class="resource-link">🏆 Contoh Proposal Juara PPK Ormawa</a></div>
+                        <div class="desc-text">Contoh proposal PPK Ormawa yang lolos pendanaan dan menjadi juara.</div>
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1FrK0UH-MRG7MmHN6J-DTqOT-7LbLmS9g" target="_blank" class="resource-link">📅 Timeline PPK Ormawa</a></div>
+                        <div class="desc-text">Jadwal pendaftaran, seleksi, dan pelaksanaan PPK Ormawa.</div>
+                    </div>
+                    <div class="resource-panel" id="panelP2MW">
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1tVRaR0urJVIQnAT1lao7A8XzYcvzejD0" target="_blank" class="resource-link">📄 Template Proposal P2MW</a></div>
+                        <div class="desc-text">Template resmi P2MW untuk menyusun proposal bisnis yang inovatif.</div>
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1ulahFyqoJBf-FVfr3I5DWrVEJhlzosdV" target="_blank" class="resource-link">🏆 Contoh Proposal Juara P2MW</a></div>
+                        <div class="desc-text">Contoh proposal P2MW yang berhasil menjadi juara, lengkap dengan analisis pasar dan proyeksi keuangan.</div>
+                        <div class="resource-group"><a href="https://drive.google.com/drive/u/1/folders/1dw22UmH_N-vQVhbQwC2fkMk14nljTGdX" target="_blank" class="resource-link">📅 Timeline P2MW</a></div>
+                        <div class="desc-text">Jadwal pendaftaran, seleksi, dan pengumuman P2MW.</div>
+                    </div>
+                </div>
+                <button class="btn btn-outline" onclick="navigateTo('beranda'); addRipple(event)">Kembali ke Beranda</button>
+            </div>
+        </div>
+
+        <!-- FEEDBACK -->
+        <div id="pageFeedback" class="page">
+            <div class="card" style="text-align:center;">
+                <h2><i class="fas fa-star"></i> Berikan Feedback Anda</h2>
+                <p>Klik tombol di bawah untuk mengisi form feedback. Partisipasi Anda sangat berharga.</p>
+                <a href="https://forms.gle/zTxZVaCmMxvEP6q36" target="_blank" class="btn btn-primary" onclick="addRipple(event)"><i class="fas fa-edit"></i> Isi Feedback</a>
+                <div style="margin-top:20px;"><button class="btn btn-outline" onclick="navigateTo('sertifikat'); addRipple(event)">Lihat / Unduh Sertifikat</button></div>
+                <div style="margin-top:20px;"><button class="btn btn-outline" onclick="navigateTo('pilihLomba'); addRipple(event)">Pelajari Lomba Lain</button></div>
+                <div style="margin-top:20px;"><button class="btn btn-outline" onclick="navigateTo('beranda'); addRipple(event)">Kembali ke Beranda</button></div>
+            </div>
+        </div>
+
+        <!-- SERTIFIKAT -->
+        <div id="pageSertifikat" class="page">
+            <div class="card" style="text-align:center;">
+                <h2><i class="fas fa-certificate"></i> Sertifikat Penyelesaian</h2>
+                <div id="certificateContainer" class="certificate-wrapper">
+                    <h1>📜 SERTIFIKAT</h1>
+                    <p style="font-size:1.3rem;">Diberikan kepada:</p>
+                    <h3 id="certName">[Nama Mahasiswa]</h3>
+                    <p>Selamat telah menyelesaikan seluruh rangkaian pembelajaran</p>
+                    <p><strong>E-Learning Persiapan Lomba Mahasiswa Fakultas Rekayasa Industri</strong></p>
+                    <p>Bandung, <span id="certDate"></span></p><br>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1903/1903164.png" style="width:80px; margin-top:15px;" alt="stempel">
+                </div>
+                <div style="margin-top:20px;">
+                    <button class="btn btn-primary" onclick="downloadSertifikat(); addRipple(event)"><i class="fas fa-download"></i> Unduh Sertifikat (PDF)</button>
+                    <button class="btn btn-primary" style="background:#2c3e50;" onclick="navigateTo('feedback'); addRipple(event)"><i class="fas fa-edit"></i> Berikan Feedback</button>
+                </div>
+                <div class="thankyou-card">
+                    <i class="fas fa-leaf" style="font-size: 3rem; color: #2e7d32;"></i>
+                    <h3 style="color: #2e7d32;">🌸 Selamat Telah Menyelesaikan Pembelajaran!</h3>
+                    <p>Terima Kasih Sudah Berpartisipasi dalam E-Learning Persiapan Lomba FRI.</p>
+                    <p>Semoga ilmu yang didapat membawa prestasi untuk Fakultas Rekayasa Industri.</p>
+                    <div style="margin-top: 25px;">
+                        <button class="btn btn-outline" onclick="navigateTo('pilihLomba'); addRipple(event)">🏆 Pelajari Lomba Lain</button>
+                        <button class="btn btn-outline" onclick="navigateTo('beranda'); addRipple(event)">🏠 Kembali ke Beranda</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN SELAMAT -->
+        <div id="pageCompletion" class="page">
+            <div class="card" style="text-align:center;">
+                <div style="background: linear-gradient(135deg, #d4fc79, #96e6a1); border-radius: 60px; padding: 40px 20px; margin-bottom: 20px;">
+                    <i class="fas fa-trophy" style="font-size: 4rem; color: #f9a826; text-shadow: 2px 2px 0 rgba(0,0,0,0.1);"></i>
+                    <h1 style="color: #1e2a36;">🎉 Selamat!</h1>
+                    <h2 style="color: #2c3e50;">Anda Telah Menyelesaikan Pembelajaran</h2>
+                    <p style="font-size: 1.2rem; margin-top: 15px;">Anda telah menyelesaikan Pretest, Materi, dan Posttest untuk lomba <strong id="completionLombaName"></strong>.</p>
+                    <p>Selanjutnya, Anda dapat mengunduh sertifikat, memberikan feedback, atau mempelajari lomba lain.</p>
+                </div>
+                <div class="completion-buttons">
+                    <button class="btn btn-primary" onclick="navigateTo('sertifikat'); addRipple(event)"><i class="fas fa-certificate"></i> Sertifikat & Feedback</button>
+                    <button class="btn btn-outline" onclick="navigateTo('pilihLomba'); addRipple(event)"><i class="fas fa-exchange-alt"></i> Pelajari Lomba Lain</button>
+                    <button class="btn btn-outline" onclick="navigateTo('beranda'); addRipple(event)"><i class="fas fa-home"></i> Kembali ke Beranda</button>
+                </div>
+                <div style="margin-top: 30px;"></div>
+            </div>
+        </div>
+
+        <footer>© 2026 E-Learning Persiapan Lomba FRI.</footer>
+    </div>
+
+    <script>
+        // Animasi ripple
+        function addRipple(event) {
+            if (!event) return;
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            button.style.position = 'relative';
+            button.style.overflow = 'hidden';
+            button.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 500);
+        }
+
+        // DATA LOMBA (10 PKM + PPK + P2MW)
+        const pkmJenis = [
+            { kode: "PKM-RE", nama: "PKM Riset Eksakta", icon: "fa-microscope" },
+            { kode: "PKM-RSH", nama: "PKM Riset Sosial Humaniora", icon: "fa-users" },
+            { kode: "PKM-K", nama: "PKM Kewirausahaan", icon: "fa-chart-line" },
+            { kode: "PKM-PM", nama: "PKM Pengabdian Masyarakat", icon: "fa-hand-holding-heart" },
+            { kode: "PKM-PI", nama: "PKM Penerapan Ilmiah", icon: "fa-flask" },
+            { kode: "PKM-KC", nama: "PKM Karsa Cipta", icon: "fa-palette" },
+            { kode: "PKM-KI", nama: "PKM Karya Inovatif", icon: "fa-lightbulb" },
+            { kode: "PKM-VGK", nama: "PKM Video Gagasan", icon: "fa-video" },
+            { kode: "PKM-GFT", nama: "PKM Gagasan Futuristik", icon: "fa-rocket" },
+            { kode: "PKM-AI", nama: "PKM Artikel Ilmiah", icon: "fa-newspaper" }
+        ];
+
+        // === GAMBAR UNTUK 5 TIPS JUARA (berbeda semua) ===
+        function getImageForModul(modulName) {
+            const images = {
+                "Pemilihan Topik dan Tim": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "Studi Literatur dan Analisis Kebutuhan": "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "Penyusunan Proposal": "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "Bimbingan dan Revisi Proposal": "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800",
+                "Persiapan Presentasi": "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800"
+            };
+            return images[modulName] || "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800";
+        }
+
+        // === GAMBAR UNTUK 12 JENIS LOMBA (disamakan per kategori) ===
+        function getLombaImage(kode) {
+            const basePKM = "https://images.pexels.com/photos/256514/pexels-photo-256514.jpeg?auto=compress&cs=tinysrgb&w=800";
+            const basePPK = "https://images.pexels.com/photos/2957911/pexels-photo-2957911.jpeg?auto=compress&cs=tinysrgb&w=800";
+            const baseP2MW = "https://images.pexels.com/photos/4045323/pexels-photo-4045323.jpeg?auto=compress&cs=tinysrgb&w=800";
+            if (kode && kode.startsWith("PKM")) return basePKM;
+            if (kode === "PPK-Ormawa") return basePPK;
+            if (kode === "P2MW") return baseP2MW;
+            return basePKM;
+        }
+
+        // Deskripsi lomba
+        function getDeskripsiLomba(kode) {
+            if (kode === "PKM-RE") return "<strong>📖 Tentang PKM Riset Eksakta</strong><br>PKM Riset Eksakta berfokus pada penelitian ilmiah di bidang sains, teknologi, teknik, dan matematika (STEM). Contoh topik: pengembangan material baru, sistem otomasi, pemodelan matematika, atau analisis data kuantitatif. Penelitian harus berbasis metode ilmiah dan menghasilkan luaran berupa publikasi, prototype, atau temuan baru yang terukur.";
+            if (kode === "PKM-RSH") return "<strong>📖 Tentang PKM Riset Sosial Humaniora</strong><br>PKM Riset Sosial Humaniora berfokus pada penelitian kualitatif/kuantitatif di bidang sosial, budaya, ekonomi, hukum, dan humaniora. Contoh topik: pola interaksi masyarakat, kebijakan publik, kearifan lokal, atau studi perilaku konsumen. Hasil penelitian diharapkan memberikan rekomendasi atau pemahaman baru tentang fenomena sosial.";
+            if (kode === "PKM-K") return "<strong>📖 Tentang PKM Kewirausahaan</strong><br>PKM Kewirausahaan berfokus pada pengembangan produk atau jasa inovatif yang layak secara bisnis. Tim harus menyusun proposal yang mencakup analisis pasar, strategi pemasaran, proyeksi keuangan, dan rencana produksi. Produk yang dihasilkan harus memiliki keunggulan kompetitif dan potensi scaling.";
+            if (kode === "PKM-PM") return "<strong>📖 Tentang PKM Pengabdian Masyarakat</strong><br>PKM Pengabdian Masyarakat berfokus pada solusi nyata untuk permasalahan di masyarakat. Tim bermitra dengan desa, lembaga, atau komunitas untuk menerapkan teknologi, pelatihan, atau pemberdayaan. Luaran utama adalah peningkatan kualitas hidup mitra, dengan pendekatan partisipatif dan berkelanjutan.";
+            if (kode === "PKM-PI") return "<strong>📖 Tentang PKM Penerapan Ilmiah</strong><br>PKM Penerapan Ilmiah berfokus pada aplikasi hasil riset menjadi produk, teknologi, atau metode yang siap digunakan oleh industri atau masyarakat. Proposal harus menjelaskan proses alih teknologi, uji coba lapangan, dan potensi komersialisasi. Contoh: alat deteksi dini, sistem informasi, atau metode produksi efisien.";
+            if (kode === "PKM-KC") return "<strong>📖 Tentang PKM Karsa Cipta</strong><br>PKM Karsa Cipta berfokus pada penciptaan karya seni, desain, atau produk budaya yang inovatif. Mulai dari seni rupa, desain produk, arsitektur, hingga pertunjukan. Proposal harus memuat konsep kreatif, proses produksi, serta dampak estetika dan fungsional bagi masyarakat.";
+            if (kode === "PKM-KI") return "<strong>📖 Tentang PKM Karya Inovatif</strong><br>PKM Karya Inovatif berfokus pada pembuatan prototipe produk fungsional yang memecahkan masalah spesifik. Bisa berupa alat bantu, mesin, atau perangkat lunak. Proposal menekankan pada kebaruan, efisiensi, dan pengujian prototipe. Hasil akhir siap untuk diujicobakan di lapangan.";
+            if (kode === "PKM-VGK") return "<strong>📖 Tentang PKM Video Gagasan Konstruktif</strong><br>PKM Video Gagasan berfokus pada penyampaian ide melalui video pendek (max 5 menit) yang kreatif, informatif, dan membangun. Video dapat berupa animasi, dokumenter, atau fiksi. Penilaian berdasarkan kejelasan gagasan, kualitas sinematik, dan potensi solusi yang ditawarkan.";
+            if (kode === "PKM-GFT") return "<strong>📖 Tentang PKM Gagasan Futuristik Tertulis</strong><br>PKM Gagasan Futuristik berfokus pada tulisan visioner yang membayangkan solusi atas masalah masa depan (10-20 tahun ke depan). Gagasan harus orisinal, berbasis kajian ilmiah, dan disajikan dalam esai yang sistematis. Kategori ini menekankan pada kreativitas dan pemikiran jauh ke depan.";
+            if (kode === "PKM-AI") return "<strong>📖 Tentang PKM Artikel Ilmiah</strong><br>PKM Artikel Ilmiah berfokus pada penulisan karya tulis ilmiah populer berdasarkan hasil riset atau kajian pustaka. Artikel ditujukan untuk publikasi di media massa/jurnal. Format: 3-5 halaman, bahasa populer, namun tetap ilmiah. Topik harus relevan dan menarik bagi masyarakat luas.";
+            if (kode === "PPK-Ormawa") return "<strong>🌾 Tentang PPK Ormawa</strong><br>Program Penguatan Kapasitas Organisasi Kemahasiswaan berfokus pada pemberdayaan desa berbasis ormawa. Tim terdiri dari lintas prodi dan bekerja langsung dengan masyarakat desa. Program harus berkelanjutan, melibatkan desa mitra, dan menghasilkan dampak sosial yang terukur. Contoh: pengelolaan potensi desa, kesehatan, atau edukasi.";
+            if (kode === "P2MW") return "<strong>💡 Tentang P2MW</strong><br>Program Pembinaan Mahasiswa Wirausaha berfokus pada pengembangan usaha rintisan (startup) yang inovatif dan berpotensi skala luas. Proposal mencakup ide bisnis, analisis pasar, operasional, proyeksi keuangan, dan strategi pemasaran. Usaha harus memiliki keunggulan kompetitif dan keberlanjutan ekonomi.";
+            return "";
+        }
+
+        const pretestLinks = {
+            "PKM-RE": "https://forms.gle/zTutMLMNymmWUhKt6",
+            "PKM-RSH": "https://forms.gle/kAtB3mPLfLUe52Sn6",
+            "PKM-K": "https://forms.gle/xzm4GANqVhSYHrmj8",
+            "PKM-PM": "https://forms.gle/pf41iGRmJcJpu2jYA",
+            "PKM-PI": "https://forms.gle/4rJtfXYddkUXjPCG9",
+            "PKM-KC": "https://forms.gle/mJQ1xdh7KVTRfoWE9",
+            "PKM-KI": "https://forms.gle/G4vKxgJzcSWXjtuw7",
+            "PKM-VGK": "https://forms.gle/AnXNsdoe5oSen8bY9",
+            "PKM-GFT": "https://forms.gle/LBq442KqW6vgJzCN9",
+            "PKM-AI": "https://forms.gle/BU7ZjvWiMmbdNU1i9",
+            "PPK-Ormawa": "https://forms.gle/Rn7YsK3MV4BSrU926",
+            "P2MW": "https://forms.gle/wTiXQaophcMVsdZP6"
+        };
+        const posttestLinks = {
+            "PKM-RE": "https://forms.gle/89Lh5f5PuHLvB2yj9",
+            "PKM-RSH": "https://forms.gle/v84P8pzZTPft2tgy6",
+            "PKM-K": "https://forms.gle/5isfKnn5Ky47ngEx7",
+            "PKM-PM": "https://forms.gle/VKo18ecXpjCViEkz9",
+            "PKM-PI": "https://forms.gle/PKZwo7r8zeKWeMjg7",
+            "PKM-KC": "https://forms.gle/F6QVdq5yHMXdsvFp9",
+            "PKM-KI": "https://forms.gle/m32YuW3CXWurR7Q5A",
+            "PKM-VGK": "https://forms.gle/TdFPP3t9dvEEKixC7",
+            "PKM-GFT": "https://forms.gle/2tFwj3hXi1JCfhsJ6",
+            "PKM-AI": "https://forms.gle/4Qs6xWSAzqrApDS27",
+            "PPK-Ormawa": "https://forms.gle/X7MDu2RHB9QJ6B3v9",
+            "P2MW": "https://forms.gle/ATT61LFKiLYtEFLRA"
+        };
+        const materiLinks = {
+            "PKM-RE": "https://drive.google.com/drive/u/1/folders/1O_EHZAWysou2TWtH2fb3zUf685I0SN7d",
+            "PKM-RSH": "https://drive.google.com/drive/u/1/folders/1O_EHZAWysou2TWtH2fb3zUf685I0SN7d",
+            "PKM-K": "https://drive.google.com/drive/u/1/folders/1q77RpW30Y2ORWXrz8iAx7TORxRmLIkie",
+            "PKM-PM": "https://drive.google.com/drive/u/1/folders/1r02TjgdfxpLDS0TRF4hcx5tNhFxFTjMj",
+            "PKM-PI": "https://drive.google.com/drive/u/1/folders/11twEPjachHGCFr5gJbUvGnVeghuDVKBl",
+            "PKM-KC": "https://drive.google.com/drive/u/1/folders/10qjs-iRjkd1ei9rWZgcv96OkjDF2TVxb",
+            "PKM-KI": "https://drive.google.com/drive/u/1/folders/1flQiHSWAn3VW_nhcgof-GfvkDJF4s4Zm",
+            "PKM-VGK": "#",
+            "PKM-GFT": "https://drive.google.com/drive/u/1/folders/1r1Gtel2Oo5kjKOZjtrOQJv0KzjKxdMlY",
+            "PKM-AI": "https://drive.google.com/drive/u/1/folders/1FGjWBc1QbIo13GNgCrq5gRj984g93ArM",
+            "PPK-Ormawa": "https://drive.google.com/drive/u/1/folders/1Hxd5MWmH83nxpGGNodCQGFfc5_t5BuDq",
+            "P2MW": "https://drive.google.com/drive/u/1/folders/1EEmNpYZ6Mw2Qf-HDx_0ZpY_iEh3z8WB4"
+        };
+
+        // Progress
+        function getStatusKey(lomba) { return `progress_${lomba}`; }
+
+        function getProgress(lomba) {
+            let val = localStorage.getItem(getStatusKey(lomba));
+            if (!val) return { pretestDone: false, materiDone: false, posttestDone: false };
+            return JSON.parse(val);
+        }
+
+        function setProgress(lomba, data) { localStorage.setItem(getStatusKey(lomba), JSON.stringify(data)); }
+
+        function markPretestDone(lomba) { let p = getProgress(lomba);
+            p.pretestDone = true;
+            setProgress(lomba, p);
+            renderHalamanBelajar(); }
+
+        function markMateriDone(lomba) { let p = getProgress(lomba);
+            p.materiDone = true;
+            setProgress(lomba, p);
+            renderHalamanBelajar(); }
+
+        function markPosttestDone(lomba) {
+            let p = getProgress(lomba);
+            p.posttestDone = true;
+            setProgress(lomba, p);
+            let namaLomba = lomba;
+            if (lomba.startsWith("PKM")) { let f = pkmJenis.find(pk => pk.kode === lomba);
+                namaLomba = f ? f.nama : lomba; } else if (lomba === "PPK-Ormawa") namaLomba = "PPK Ormawa";
+            else if (lomba === "P2MW") namaLomba = "P2MW";
+            document.getElementById("completionLombaName").innerText = namaLomba;
+            showPage("completion");
+        }
+
+        let currentUser = "",
+            currentLomba = null;
+
+        function getCompetitionBase(lombaKode) {
+            if (lombaKode.startsWith("PKM")) return "PKM";
+            if (lombaKode === "PPK-Ormawa") return "PPK-Ormawa";
+            if (lombaKode === "P2MW") return "P2MW";
+            return null;
+        }
+
+        function resetAllProgress() {
+            const keys = Object.keys(localStorage);
+            keys.forEach(key => { if (key.startsWith("progress_")) localStorage.removeItem(key); });
+            currentLomba = null;
+            currentUser = "";
+            document.getElementById("userNameLabel").innerText = "Guest";
+        }
+
+        function doLogin(event) {
+            addRipple(event);
+            let name = document.getElementById("loginName").value.trim();
+            if (!name) { alert("Masukkan nama!");
+                return; }
+            currentUser = name;
+            document.getElementById("userNameLabel").innerText = currentUser;
+            document.getElementById("navButtons").style.display = "flex";
+            showPage("beranda");
+        }
+
+        function logout() {
+            resetAllProgress();
+            document.getElementById("navButtons").style.display = "none";
+            showPage("login");
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            // handle pageId dengan huruf kapital
+            let pageName = pageId.charAt(0).toUpperCase() + pageId.slice(1);
+            // khusus untuk pilihLombaTips
+            if (pageId === 'pilihLombaTips') pageName = 'PilihLombaTips';
+            document.getElementById(`page${pageName}`).classList.add('active-page');
+            if (pageId === 'pilihLomba') renderDaftarLomba();
+            if (pageId === 'pilihLombaTips') renderPilihLombaTips();
+            if (pageId === 'belajar' && currentLomba) renderHalamanBelajar();
+            if (pageId === 'resourceCenter') initResourceTabs();
+            if (pageId === 'modulList') {
+                // jika currentLombaTips belum diset, default PKM
+                if (!currentLombaTips) currentLombaTips = 'PKM';
+                renderModulList(currentLombaTips);
+            }
+            if (pageId === 'sertifikat') {
+                document.getElementById("certName").innerText = currentUser;
+                document.getElementById("certDate").innerText = new Date().toLocaleDateString('id-ID');
+            }
+        }
+
+        function navigateTo(page) { showPage(page); }
+
+        // Variabel untuk menyimpan base lomba yang dipilih di 5 Tips Juara
+        let currentLombaTips = 'PKM';
+
+        function goToQuick(type) {
+            if (type === 'modul') {
+                // Tampilkan halaman pilih lomba untuk tips
+                showPage('pilihLombaTips');
+            } else if (type === 'resource') {
+                showPage('resourceCenter');
+            }
+        }
+
+        // === Render halaman pilih lomba untuk 5 Tips Juara ===
+        function renderPilihLombaTips() {
+            const container = document.getElementById('lombaTipsList');
+            container.innerHTML = '';
+            const tipsLomba = [
+                { kode: 'PKM', nama: 'PKM', icon: 'fa-microscope' },
+                { kode: 'PPK-Ormawa', nama: 'PPK Ormawa', icon: 'fa-users' },
+                { kode: 'P2MW', nama: 'P2MW', icon: 'fa-chart-line' }
+            ];
+            tipsLomba.forEach(item => {
+                let card = document.createElement('div');
+                card.className = 'lomba-card';
+                card.innerHTML = `<i class="fas ${item.icon}"></i><h4>${item.nama}</h4><p style="font-size:0.85rem; color:#666;">Lihat 5 modul tips</p>`;
+                card.onclick = (e) => {
+                    addRipple(e);
+                    currentLombaTips = item.kode;
+                    renderModulList(item.kode);
+                    showPage('modulList');
+                };
+                container.appendChild(card);
+            });
+        }
+
+        // === Render daftar modul untuk 5 Tips Juara ===
+        function renderModulList(base) {
+            if (!base) base = 'PKM';
+            document.getElementById('modulListTitle').innerHTML = `<i class="fas fa-chalkboard"></i> 5 Tips Juara - ${base}`;
+            let container = document.getElementById('modulGridContainer');
+            container.innerHTML = '';
+            let dataModul = modulData[base];
+            if (!dataModul) return;
+            const keys = ['Pemilihan Topik dan Tim', 'Studi Literatur dan Analisis Kebutuhan', 'Penyusunan Proposal',
+                'Bimbingan dan Revisi Proposal', 'Persiapan Presentasi'
+            ];
+            keys.forEach(mod => {
+                let data = dataModul[mod];
+                if (!data) return;
+                let card = document.createElement('div');
+                card.className = 'modul-card';
+                let imgSrc = getImageForModul(mod);
+                card.innerHTML = `
+              <img class="modul-thumb" src="${imgSrc}" alt="${mod}">
+              <i class="${data.icon}" style="font-size:2.2rem; color:#f9a826;"></i>
+              <h4>${mod}</h4>
+              <p>Klik untuk membaca materi lengkap</p>
+            `;
+                card.onclick = (e) => {
+                    addRipple(e);
+                    showModulDetail(base, mod);
+                };
+                container.appendChild(card);
+            });
+        }
+
+        // === Fungsi untuk menampilkan detail modul (tanpa navigasi prev/next) ===
+        function showModulDetail(base, modName) {
+            // set badge
+            let compDisplay = base === 'PKM' ? 'PKM' : (base === 'PPK-Ormawa' ? 'PPK Ormawa' : 'P2MW');
+            document.getElementById('compBadge').innerHTML = compDisplay;
+            let content = modulData[base][modName].konten;
+            document.getElementById('modulDetailContent').innerHTML = content;
+            // simpan base dan modName untuk tombol kembali
+            window._detailBase = base;
+            window._detailMod = modName;
+            showPage('modulDetail');
+        }
+
+        function backToModulList() {
+            let base = window._detailBase || 'PKM';
+            renderModulList(base);
+            showPage('modulList');
+        }
+
+        // === render daftar lomba untuk halaman utama ===
+        function renderDaftarLomba() {
+            const container = document.getElementById("lombaList");
+            container.innerHTML = "";
+            pkmJenis.forEach(p => {
+                let card = document.createElement("div");
+                card.className = "lomba-card";
+                card.innerHTML = `<i class="fas ${p.icon}"></i><h4>${p.nama}</h4>`;
+                card.onclick = (e) => { addRipple(e);
+                    pilihLomba(p.kode); };
+                container.appendChild(card);
+            });
+            let ppk = document.createElement("div");
+            ppk.className = "lomba-card";
+            ppk.innerHTML = `<i class="fas fa-users"></i><h4>PPK Ormawa</h4>`;
+            ppk.onclick = (e) => { addRipple(e);
+                pilihLomba("PPK-Ormawa"); };
+            container.appendChild(ppk);
+            let p2mw = document.createElement("div");
+            p2mw.className = "lomba-card";
+            p2mw.innerHTML = `<i class="fas fa-chalkboard-user"></i><h4>P2MW</h4>`;
+            p2mw.onclick = (e) => { addRipple(e);
+                pilihLomba("P2MW"); };
+            container.appendChild(p2mw);
+        }
+
+        function pilihLomba(kode) {
+            currentLomba = kode;
+            renderHalamanBelajar();
+            showPage("belajar");
+        }
+
+        function renderHalamanBelajar() {
+            let nama = currentLomba;
+            if (currentLomba.startsWith("PKM")) { let f = pkmJenis.find(p => p.kode === currentLomba);
+                nama = f ? f.nama : currentLomba; } else if (currentLomba === "PPK-Ormawa") nama = "PPK Ormawa";
+            else if (currentLomba === "P2MW") nama = "P2MW";
+            document.getElementById("judulLombaBelajar").innerHTML = `<i class="fas fa-book-open"></i> ${nama}`;
+            document.getElementById("lombaDeskripsiContainer").innerHTML = getDeskripsiLomba(currentLomba);
+            document.getElementById("lombaImage").src = getLombaImage(currentLomba);
+            let progress = getProgress(currentLomba);
+            let preLink = pretestLinks[currentLomba] || "#";
+            let matLink = materiLinks[currentLomba] || "#";
+            let postLink = posttestLinks[currentLomba] || "#";
+            let html =
+                `<div style="display:flex; gap:20px; flex-wrap:wrap;">
+              <div><a href="${preLink}" target="_blank" class="btn btn-primary">📋 Pretest</a> ${!progress.pretestDone ? '<br><small>Kerjakan, lalu konfirmasi.</small>' : '<br><span style="color:green;">✓ Selesai</span>'}</div>
+              <div><button class="btn" ${!progress.pretestDone ? 'disabled' : ''} onclick="konfirmasiMateri(); addRipple(event)">📂 Materi</button> ${progress.materiDone ? '<br><span style="color:green;">✓ Selesai</span>' : ''}</div>
+              <div><button class="btn" ${!progress.materiDone ? 'disabled' : ''} onclick="konfirmasiPosttest(); addRipple(event)">📝 Posttest</button> ${progress.posttestDone ? '<br><span style="color:green;">✓ Selesai</span>' : ''}</div>
+            </div>`;
+            if (!progress.pretestDone) {
+                html +=
+                    `<div style="margin-top:20px;"><button class="btn btn-outline" onclick="markPretestDone('${currentLomba}'); addRipple(event)"><i class="fas fa-check"></i> Saya sudah selesai Pretest</button></div>`;
+            } else if (progress.pretestDone && !progress.materiDone) {
+                html +=
+                    `<div style="margin-top:20px;"><a href="${matLink}" target="_blank" class="btn btn-primary">Buka Materi</a>
+              <button class="btn btn-outline" onclick="markMateriDone('${currentLomba}'); addRipple(event)"><i class="fas fa-check"></i> Saya sudah selesai Materi</button></div>`;
+            } else if (progress.materiDone && !progress.posttestDone) {
+                html +=
+                    `<div style="margin-top:20px;"><a href="${postLink}" target="_blank" class="btn btn-primary">Buka Posttest</a>
+              <button class="btn btn-outline" onclick="markPosttestDone('${currentLomba}'); addRipple(event)"><i class="fas fa-check"></i> Saya sudah selesai Posttest</button></div>`;
+            } else if (progress.posttestDone) {
+                html +=
+                    `<div style="margin-top:20px;"><button class="btn btn-primary" onclick="navigateTo('completion'); addRipple(event)">🎓 Berikutnya</button></div>`;
+            }
+            document.getElementById("tombolBelajarWrapper").innerHTML = html;
+        }
+
+        function konfirmasiMateri() { let link = materiLinks[currentLomba]; if (link && link !== "#") window.open(link, "_blank");
+            else alert("Link materi belum tersedia."); }
+
+        function konfirmasiPosttest() { let link = posttestLinks[currentLomba]; if (link) window.open(link, "_blank");
+            else alert("Link posttest belum tersedia."); }
+
+        // ======================== KONTEN 5 MODUL REVISI LENGKAP ========================
+        // Konten modul sudah dirapikan dengan spasi dan paragraf yang lebih baik.
+        const modulData = {
+            "PKM": {
+                "Pemilihan Topik dan Tim": {
+                    icon: "fas fa-users",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Pemilihan Topik dan Tim')}"><div class="modul-text"><h3>🎯 Modul 1: Pemilihan Topik dan Tim (PKM)</h3><p>PKM mengharuskan Anda memilih topik yang inovatif, berbasis iptek, dan solutif. Langkah-langkahnya:</p><p><strong>1. Pastikan topik memiliki nilai kebaruan (novelty)</strong><br>Topik adalah fondasi proposal PKM. Pilihan topik yang memiliki nilai kebaruan (novelty), relevan dengan isu terkini, dan berbasis pada permasalahan nyata. Hindari topik yang sudah banyak diteliti. Lakukan observasi lapangan, baca jurnal terbaru, atau diskusi dengan dosen untuk mendapatkan ide. Pastikan topik tersebut dapat dilaksanakan dengan sumber daya yang ada (waktu, biaya, keahlian tim).</p><p><strong>2. Kriteria Topik Unggul</strong><br>Topik yang baik harus orisinal (belum banyak dikerjakan), berdampak (memberikan manfaat nyata), terjangkau (dapat dilaksanakan), dan terukur (target luaran jelas). Misalnya, pilihan topik yang berkaitan dengan SDGs seperti energi terbarukan, pengurangan sampah, atau pemberdayaan masyarakat.</p><p><strong>3. Membentuk Tim yang Solid</strong><br>Tim PKM ideal terdiri dari 3-5 orang dengan latar belakang keilmuan yang saling melengkapi. Misalnya, seorang ahli teknik, ekonomi, dan desain. Lakukan pemetaan peran: ketua (koordinasi), sekretaris (administrasi), bendahara (anggaran), divisi teknis (metodologi), dan divisi desain (visualisasi). Buat kontrak tim tertulis yang memuat jadwal rapat, pembagian tugas, dan hak cipta untuk menghindari konflik.</p><p><strong>4. Konsultasi Awal dengan Dosen Pembimbing</strong><br>Segera konsultasikan topik dan susunan tim kepada dosen pembimbing. Jangan menunggu proposal jadi. Dosen akan memberikan validasi kelayakan, arah penelitian, serta membantu memperkuat argumen. Lakukan bimbingan rutin seminggu sekali.</p><p><strong>5. Finalisasi Topik dan Tim</strong><br>Setelah diskusi, finalkan topik dan susunan tim. Dokumentasikan kesepakatan dalam berita acara yang ditandatangani semua anggota. Topik yang sudah final akan memudahkan langkah berikutnya: studi literatur.</p></div></div>`
+                },
+                "Studi Literatur dan Analisis Kebutuhan": {
+                    icon: "fas fa-book",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Studi Literatur dan Analisis Kebutuhan')}"><div class="modul-text"><h3>📚 Modul 2: Studi Literatur dan Analisis Kebutuhan (PKM)</h3><p>Setelah topik dan tim siap, langkah berikutnya adalah menggali data dan memahami masalah secara mendalam. Jangan pernah melompat ke penyusunan proposal tanpa melalui tahap ini. Proposal yang kuat lahir dari data dan fakta, bukan sekadar opini.</p><p><strong>1. Cari referensi dari sumber kredibel</strong><br>Gunakan jurnal ilmiah terindeks Scopus atau Sinta (5 tahun terakhir), proposal pemenang tahun sebelumnya, dan data statistik dari BPS atau sumber resmi.</p><p><strong>2. Baca dan analisis literatur</strong><br>Fokus pada gap penelitian. Apa yang sudah diteliti orang lain? Apa yang belum? Catat metode, hasil, dan kesimpulan dari setiap referensi.</p><p><strong>3. Lakukan identifikasi masalah awal</strong><br>Tentukan populasi dan sampel. Gunakan kuesioner, wawancara, atau observasi untuk mengumpulkan data primer.</p><p><strong>4. Analisis akar masalah</strong><br>Jangan hanya gejala. Gunakan diagram fishbone atau root cause analysis untuk menemukan penyebab mendasar.</p><p><strong>5. Rumuskan gap dan kebutuhan</strong><br>Bandingkan temuan literatur dengan data lapangan. Tentukan di mana letak kebaruan proposal Anda.</p><p><strong>6. Susun kerangka proposal</strong><br>Gunakan proposal pemenang sebagai acuan struktur. Pastikan latar belakang didukung data dan metode dilengkapi flowchart.</p></div></div>`
+                },
+                "Penyusunan Proposal": {
+                    icon: "fas fa-file-alt",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Penyusunan Proposal')}"><div class="modul-text"><h3>✍️ Modul 3: Penyusunan Proposal (PKM)</h3><p>Setelah topik dan tim ditentukan serta data dan kebutuhan tergali, kini saatnya menuangkan semuanya ke dalam proposal. Proposal adalah dokumen utama yang akan dinilai reviewer. Jika proposal Anda lemah, ide sekreatif apa pun tidak akan lolos.</p><p><strong>1. Gunakan template resmi Belmawa</strong><br>Proposal PKM wajib menggunakan template dari Belmawa (SIMBELMAWA). Aturan: Times New Roman 12, spasi 1,5, margin kiri 4 cm, kanan 3 cm, atas 3 cm, bawah 3 cm. Batas halaman maksimal 20 halaman (termasuk lampiran). Satu kesalahan administrasi bisa menggugurkan proposal Anda.</p><p><strong>2. Latar belakang harus tunjukkan gap penelitian</strong><br>Mulai dengan data statistik, lalu bandingkan dengan penelitian yang sudah ada. Tunjukkan apa yang belum terjawab dan mengapa masalah itu penting. Akhiri dengan pernyataan solusi.</p><p><strong>3. Metode wajib disertai flowchart</strong><br>Diagram alir harus menggambarkan langkah penelitian dari awal hingga akhir. Setiap tahap dijelaskan secara detail: apa yang dilakukan, bagaimana caranya, siapa yang bertanggung jawab, dan berapa lama.</p><p><strong>4. Target Luaran, Anggaran, dan Jadwal</strong><br>Target luaran harus spesifik dan terukur, misalnya "publikasi di jurnal Sinta 3, prototype alat, video dokumentasi". Anggaran rinci per item dengan justifikasi harga pasar. Jadwal menggunakan Gantt chart untuk 4-5 bulan, dengan milestone tiap 2 minggu.</p></div></div>`
+                },
+                "Bimbingan dan Revisi Proposal": {
+                    icon: "fas fa-chalkboard",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Bimbingan dan Revisi Proposal')}"><div class="modul-text"><h3>🤝 Modul 4: Bimbingan dan Revisi Proposal (PKM)</h3><p>Proposal terbaik tidak lahir dari kerja sendiri, tetapi dari proses bimbingan dan revisi yang intensif bersama dosen pembimbing. Jangan pernah mengirim proposal tanpa melalui tahap ini. Bimbingan yang efektif akan menangkap kesalahan yang tidak Anda sadari dan memperkuat argumen yang masih lemah.</p><p><strong>1. Lakukan bimbingan rutin minimal seminggu sekali</strong><br>Jangan hanya datang saat mendekati deadline. Bimbingan rutin membantu Anda tetap on track dan revisi tidak menumpuk. Koordinasikan jadwal dengan dosen sejak awal.</p><p><strong>2. Kirim draft maksimal 3-4 hari sebelum bimbingan</strong><br>Dosen butuh waktu membaca. Jangan kirim jam H lalu berharap langsung dapat masukan. Sertakan bagian mana yang ingin Anda tanyakan secara spesifik.</p><p><strong>3. Catat semua revisi dalam checklist</strong><br>Buat daftar masukan dosen di spreadsheet atau buku catatan. Pisahkan revisi besar (perubahan metode, struktur) dan revisi kecil (typo, format). Tandai yang sudah dikerjakan.</p><p><strong>4. Jangan ragu bertanya jika masukan kurang dipahami</strong><br>Jika revisi tidak jelas, minta penjelasan. Lebih baik bertanya daripada salah mengerjakan. Bawa data pendukung jika perlu berargumen, tetapi tetap terbuka terhadap arahan dosen.</p><p><strong>5. Pastikan semua revisi selesai sebelum batas akhir pendaftaran</strong><br>Jangan menunda. Deadline pendaftaran tidak akan menunggu Anda. Lakukan final review bersama tim setelah semua revisi dikerjakan.</p></div></div>`
+                },
+                "Persiapan Presentasi": {
+                    icon: "fas fa-presentation",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Persiapan Presentasi')}"><div class="modul-text"><h3>🎤 Modul 5: Persiapan Presentasi (PKM)</h3><p><strong>Karakteristik presentasi PKM:</strong> Fokus pada metodologi penelitian, kebaruan ide, dan target luaran. Juri akan menguji seberapa dalam tim memahami gap penelitian dan validitas metode.</p><p><strong>1. Buat slide maksimal 10-12 slide</strong><br>Jangan terlalu banyak. Isi dengan poin kunci: latar belakang (1-2 slide), metode (wajib flowchart, 2-3 slide), target luaran (1 slide), anggaran dan jadwal (1 slide), kesimpulan (1 slide). Hindari teks panjang. Gunakan visual (grafik, diagram, foto).</p><p><strong>2. Latihan presentasi minimal 5-10 kali dengan timer</strong><br>Durasi biasanya 10-15 menit. Jangan lebih. Latihan bersama tim, minta masukan dari anggota lain. Rekam dan tonton kembali untuk evaluasi.</p><p><strong>3. Memprediksi Pertanyaan Juri</strong><br>Fokus pada: "Apa kebaruan penelitian Anda?", "Mengapa metode ini yang dipilih?", "Apa rencana jika anggaran dipotong 50%?", "Apa dampak jika data tidak mendukung hipotesis?". Siapkan jawaban singkat dan jelas.</p><p><strong>4. Simulasi sesi tanya jawab dengan dosen atau senior</strong><br>Minta mereka mengajukan pertanyaan kritis seperti juri asli. Latihan ini akan mengurangi gugup dan melatih Anda menjawab dengan tenang.</p><p><strong>5. Pastikan setiap anggota tim menguasai seluruh materi</strong><br>Juri bisa menanyakan apa pun kepada siapa pun. Jangan hanya ketua atau satu orang yang hafal. Seluruh anggota harus paham latar belakang, metode, dan data.</p></div></div>`
+                }
+            },
+            "PPK-Ormawa": {
+                "Pemilihan Topik dan Tim": {
+                    icon: "fas fa-handshake",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Pemilihan Topik dan Tim')}"><div class="modul-text"><h3>🌾 Modul 1: Pemilihan Topik dan Tim (PPK Ormawa)</h3><p>PPK Ormawa adalah program pengabdian dan pemberdayaan masyarakat yang dijalankan oleh organisasi kemahasiswaan. Topik harus berbasis permasalahan riil di desa/kelurahan.</p><p><strong>1. Fokus pada Pemberdayaan Desa</strong><br>PPK Ormawa bertujuan memberdayakan masyarakat desa. Pilihan topik yang berdasarkan permasalahan nyata di desa mitra. Lokasi diprioritaskan dalam radius maksimal 100 km dari kampus. Lakukan observasi awal dan diskusi dengan perangkat desa untuk menggali potensi dan kendala. Topik harus realistis, terukur, dan berkelanjutan.</p><p><strong>2. Menentukan Desa Mitra</strong><br>Pilih desa yang memiliki masalah yang sesuai dengan kemampuan tim (waktu, biaya, keahlian). Koordinasi dengan pemerintah desa dan tokoh masyarakat sangat penting. Pastikan desa bersedia menjadi mitra dan mendukung program.</p><p><strong>3. Membentuk Tim Multidisiplin</strong><br>Tim ideal terdiri dari 10–15 mahasiswa dari berbagai program studi (misal: pertanian, kesehatan, ekonomi, komunikasi). Buat struktur organisasi: ketua (koordinasi), sekretaris (administrasi), bendahara (anggaran), divisi lapangan (pelaksanaan), dokumentasi, dan humas.</p><p><strong>4. Finalisasi Topik dengan Validasi Masyarakat</strong><br>Presentasikan rencana program kepada warga desa dan perangkat desa. Dapatkan dukungan dan masukan. Topik yang didukung masyarakat akan lebih mudah dilaksanakan dan berkelanjutan.</p></div></div>`
+                },
+                "Studi Literatur dan Analisis Kebutuhan": {
+                    icon: "fas fa-search",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Studi Literatur dan Analisis Kebutuhan')}"><div class="modul-text"><h3>📖 Modul 2: Studi Literatur dan Analisis Kebutuhan (PPK Ormawa)</h3><p>Studi literatur dalam PPK Ormawa berbeda dengan PKM. Fokusnya lebih pada data kondisi masyarakat, kebijakan desa, dan program pemberdayaan yang sudah ada.</p><p><strong>1. Kumpulkan data Primer dan Sekunder desa</strong><br>Kumpulkan data primer melalui wawancara mendalam dengan tokoh masyarakat, perangkat desa, dan kelompok sasaran. Lakukan observasi partisipatif. Data sekunder dari Profil desa, monografi, data BPS, dokumen RPJMDes, dan program pemberdayaan yang pernah ada.</p><p><strong>2. Pemetaan sosial (social mapping)</strong><br>Identifikasi kelompok sasaran, potensi lokal, kelembagaan desa, dan kendala yang dihadapi.</p><p><strong>3. Analisis kebutuhan berdasarkan topik yang dipilih</strong><br>Sesuaikan dengan topik yang dipilih. Misalnya, untuk Desa Wirausaha, identifikasi potensi ekonomi, pelaku UMKM, akses pasar, dan kendala yang dihadapi.</p><p><strong>4. Libatkan masyarakat dalam perumusan solusi</strong><br>Gunakan pendekatan partisipatif. Masyarakat adalah subjek, bukan objek program.</p><p><strong>5. Dokumentasikan dengan foto dan video</strong><br>Bukti visual memperkuat analisis dan proposal.</p></div></div>`
+                },
+                "Penyusunan Proposal": {
+                    icon: "fas fa-clipboard-list",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Penyusunan Proposal')}"><div class="modul-text"><h3>📝 Modul 3: Penyusunan Proposal (PPK Ormawa)</h3><p><strong>1. Sesuaikan dengan indikator minimum topik</strong><br>Panduan PPK Ormawa 2026 menetapkan indikator keberhasilan minimum untuk setiap topik (Desa Wirausaha, Smart Farming, dll). Proposal wajib mencantumkan indikator tersebut sebagai target capaian.</p><p><strong>2. Latar belakang berbasis data desa</strong><br>Jangan opini. Sajikan profil desa, hasil survei, wawancara, dan observasi lapangan. Tunjukkan masalah prioritas, potensi lokal, dan program pemberdayaan yang sudah ada.</p><p><strong>3. Program kerja harus partisipatif dan berkelanjutan</strong><br>Libatkan masyarakat dalam perencanaan. Program tidak boleh hanya pelatihan satu kali. Harus ada pendampingan, pembentukan kelompok, dan rencana keberlanjutan pasca program.</p><p><strong>4. Metode pemberdayaan dijelaskan secara sistematis</strong><br>Mulai dari sosialisasi, pembentukan kelompok, intervensi inovasi, pendampingan, hingga monitoring evaluasi. Sertakan pula bagaimana masyarakat akan dilibatkan di setiap tahap.</p><p><strong>5. Anggaran realistik dengan proporsi yang tepat</strong><br>Dana maksimal Rp30 juta. Prioritaskan belanja bahan habis pakai (minimal 60%). Biaya perjalanan maksimal 15%, belanja lain-lain (promosi, publikasi, cetak) maksimal 25%. Jangan gunakan untuk honor tim atau pembelian laptop.</p><p><strong>6. Luaran wajib dicantumkan</strong><br>Akun media sosial usaha/program, buku refleksi Ormawa, video dokumenter, poster hasil kegiatan. Semua harus terukur dan dijadwalkan.</p></div></div>`
+                },
+                "Bimbingan dan Revisi Proposal": {
+                    icon: "fas fa-comments",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Bimbingan dan Revisi Proposal')}"><div class="modul-text"><h3>🤝 Modul 4: Bimbingan dan Revisi Proposal (PPK Ormawa)</h3><p><strong>1. Libatkan dosen pendamping dalam setiap tahap, termasuk survei lapangan</strong><br>Dosen tidak hanya untuk menilai proposal, tetapi juga memberi arahan tentang pendekatan pemberdayaan dan etika berinteraksi dengan masyarakat. Ajak dosen saat survei awal desa jika memungkinkan.</p><p><strong>2. Koordinasi jadwal yang kompleks</strong><br>Tim PPK Ormawa besar (10-15 orang) dan melibatkan banyak pihak (dosen, perangkat desa, mitra). Gunakan Google Calendar atau formulir kesepakatan waktu agar bimbingan tidak molor. Sepakati frekuensi (misal: setiap minggu) sejak awal.</p><p><strong>3. Validasi program kerja dengan dosen sebelum disosialisasikan ke masyarakat</strong><br>Jangan sampai program yang sudah disepakati dengan desa ditolak dosen karena tidak realisitas atau tidak sesuai indikator topik. Konsultasikan rancangan program terlebih dahulu.</p><p><strong>4. Gunakan checklist capaian indikator topik</strong><br>Setiap topik PPK memiliki indikator keberhasilan minimum. Saat bimbingan, periksa satu per satu apakah proposal sudah memenuhi semuanya. Dosen akan membantu memastikan tidak ada yang terlewat.</p><p><strong>5. Dokumentasikan setiap revisi dan kesepakatan</strong><br>Karena banyak anggota, buat catatan rapat bimbingan yang dibagikan ke seluruh tim. Ini mencegah miskomunikasi dan revisi yang tercecer.</p></div></div>`
+                },
+                "Persiapan Presentasi": {
+                    icon: "fas fa-video",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Persiapan Presentasi')}"><div class="modul-text"><h3>🎙️ Modul 5: Persiapan Presentasi (PPK Ormawa)</h3><p><strong>Karakteristik presentasi PPK Ormawa:</strong> Fokus pada dampak sosial program, partisipasi masyarakat, dan keberlanjutan. Juri ingin melihat perubahan nyata di desa/kelurahan dan keterlibatan masyarakat.</p><p><strong>1. Gunakan metode storytelling dengan foto dan video lapangan</strong><br>Ceritakan perjalanan program dari survei awal hingga hasil. Tampilkan foto kondisi desa sebelum dan sesudah, testimoni warga, dan momen kebersamaan. Emosi dan data berjalan beriringan.</p><p><strong>2. Tekankan indikator keberhasilan topik dengan data</strong><br>Setiap topik PPK memiliki indikator minimum (misal: terbentuk 10 pelaku usaha baru untuk Desa Wirausaha). Sajikan data capaian dalam grafik atau tabel sederhana. Juri akan mencari bukti bahwa program Anda berdampak.</p><p><strong>3. Libatkan masyarakat dalam presentasi jika memungkinkan</strong><br>Bisa dalam bentuk video pendek testimoni atau kehadiran perwakilan desa. Ini bukti nyata bahwa program Anda diterima dan berkelanjutan.</p><p><strong>4. Latihan menyampaikan cerita secara runtut dengan durasi tepat</strong><br>Cerita yang terlalu panjang membosankan, terlalu pendek tidak mendalam. Latihan 10-15 menit dengan alur: masalah desa → solusi → kegiatan → dampak → keberlanjutan.</p><p><strong>5. Siapkan jawaban untuk pertanyaan tentang keberlanjutan</strong><br>Juri pasti menanyakan: "Apa yang terjadi setelah tim Anda meninggalkan desa?". Tunjukkan rencana tindak lanjut, kader lokal yang sudah dilatih, atau komitmen pemerintah desa.</p></div></div>`
+                }
+            },
+            "P2MW": {
+                "Pemilihan Topik dan Tim": {
+                    icon: "fas fa-chart-line",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Pemilihan Topik dan Tim')}"><div class="modul-text"><h3>💡 Modul 1: Pemilihan Topik dan Tim (P2MW)</h3><p>P2MW diperuntukkan bagi mahasiswa yang sudah memiliki usaha berjalan. Topik (ide bisnis) harus inovatif, berkelanjutan, dan memiliki potensi pasar.</p><p><strong>1. Kriteria Ide Bisnis yang Inovatif</strong><br>Ide bisnis harus memiliki nilai kebaruan (belum banyak pesaing), potensi pasar yang besar, dan keberlanjutan (bisa dijalankan setelah lomba). Hindari produk yang sudah sangat umum. Lakukan riset pasar awal untuk memvalidasi ide.</p><p><strong>2. Pilih ide yang bisa dikembangkan jangka panjang</strong><br>Jangan memilih ide hanya untuk kepentingan lomba. Pertimbangkan apakah bisnis ini bisa terus berjalan setelah program selesai, dari sisi pasar, skala usaha, dan keberlanjutan finansial.</p><p><strong>3. Kenali potensi diri dan kemampuan tim</strong><br>Pilih ide bisnis yang sesuai dengan minat, pengalaman, dan keahlian anggota tim. Tim yang tidak memiliki pengalaman di bidang tertentu akan kesulitan menjalankan usaha.</p><p><strong>4. Pilih topik yang relevan dengan permasalahan nyata di masyarakat</strong><br>Ide harus memiliki nilai inovasi dan keberlanjutan. Jangan menciptakan solusi untuk masalah yang tidak ada.</p><p><strong>5. Lakukan riset pasar sederhana</strong><br>Validasi ide melalui survei minimal 50 responden, wawancara calon konsumen, atau uji coba produk awal. Data riset pasar menjadi salah satu kriteria penilaian (Kriteria Penilaian P2MW: Konsumen Potensial 20%, Inovasi Produk 25%).</p></div></div>`
+                },
+                "Studi Literatur dan Analisis Kebutuhan": {
+                    icon: "fas fa-chart-simple",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Studi Literatur dan Analisis Kebutuhan')}"><div class="modul-text"><h3>📊 Modul 2: Studi Literatur dan Analisis Kebutuhan (P2MW)</h3><p>Studi literatur dalam P2MW lebih diarahkan pada riset pasar dan analisis kompetitor. Tujuannya adalah memvalidasi bahwa ide bisnis Anda layak dan memiliki peluang.</p><p><strong>1. Riset pasar primer</strong><br>Survei minimal 50 responden untuk mengetahui kebutuhan konsumen, perilaku pembelian, harga yang diinginkan, dan willingness to pay. Gunakan Google Forms atau wawancara langsung.</p><p><strong>2. Analisis Kompetitor</strong><br>Identifikasi pesaing langsung dan tidak langsung. Gunakan matriks SWOT (Strengths, Weaknesses, Opportunities, Threats). Tentukan strategi diferensiasi: apa yang membuat produk Anda unik dan lebih baik.</p><p><strong>3. Gunakan data sekunder</strong><br>Data industri, tren pasar, proyeksi ekonomi dari BPS, Kementerian Perdagangan, atau laporan riset pasar.</p><p><strong>4. Validasi masalah dan solusi</strong><br>Uji coba produk/jasa ke calon konsumen (prototype testing). Kumpulkan testimoni dan umpan balik untuk perbaikan.</p><p><strong>5. Petakan business model canvas (BMC)</strong><br>Isi 9 blok: customer segments, value propositions, channels, customer relationships, revenue streams, key resources, key activities, key partnerships, cost structure.</p><p><strong>6. Tentukan tahapan usaha</strong><br>Apakah masih Tahapan Awal (usaha berjalan <6 bulan) atau Tahapan Bertumbuh (≥6 bulan, sudah ada legalitas)? Sesuaikan target dan indikator.</p></div></div>`
+                },
+                "Penyusunan Proposal": {
+                    icon: "fas fa-chart-pie",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Penyusunan Proposal')}"><div class="modul-text"><h3>📄 Modul 3: Penyusunan Proposal (P2MW)</h3><p><strong>1. Tentukan tahapan usaha dengan benar</strong><br>Tahapan Awal (usaha berjalan <6 bulan) atau Tahapan Bertumbuh (≥6 bulan dan sudah ada legalitas). Besaran pendanaan berbeda (Rp15 juta vs Rp20 juta). Jangan salah memilih.</p><p><strong>2. Sertakan Business Model Canvas (BMC) yang lengkap</strong><br>9 blok BMC harus terisi: customer segments, value propositions, channels, customer relationships, revenue streams, key resources, key activities, key partnerships, cost structure. Jangan asal tempel.</p><p><strong>3. Analisis pasar dan kompetitor berbasis data</strong><br>Lampiran hasil survei minimal 50 responden, bukti uji coba produk, testimoni, dan analisis SWOT. Jangan klaim pasar besar tanpa data.</p><p><strong>4. Proyeksi keuangan harus realistis</strong><br>Sertakan proyeksi laba rugi, arus kas, dan BEP (break even point) dengan asumsi yang jelas. Jangan terlalu optimis. Untuk tahap awal cukup proyeksi, untuk tahap bertumbuh harus laporan keuangan riil.</p><p><strong>5. Komponen anggaran sesuai ketentuan</strong><br>Tahap awal: pengembangan produk/riset (maks 50%), produksi (maks 50%), legalitas (maks 30%), peningkatan kompetensi (maks 10%), ATK (maks 5%). Tahap bertumbuh: pengembangan pasar (maks 40%), pengembangan produk (maks 30%), produksi (maks 40%), legalitas (maks 15%), kompetensi (maks 10%), ATK (maks 5%).</p><p><strong>6. Lampiran bukti validasi produk dan legalitas</strong><br>Problem-solution fit (PSF) atau product-market fit (PMF), bukti uji coba, serta komitmen mitra. Untuk tahap bertumbuh, sertakan NIB atau legalitas lain (PIRT, Halal, BOM).</p></div></div>`
+                },
+                "Bimbingan dan Revisi Proposal": {
+                    icon: "fas fa-chalkboard-user",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Bimbingan dan Revisi Proposal')}"><div class="modul-text"><h3>🤝 Modul 4: Bimbingan dan Revisi Proposal (P2MW)</h3><p><strong>1. Fokus bimbingan pada kelayakan bisnis dan operasional</strong><br>Dosen akan banyak mengkritisi bagian operasional (produksi, pemasaran, keuangan) dan validasi pasar. Siapkan data riset, BMC, dan proyeksi keuangan sebelum bimbingan.</p><p><strong>2. Libatkan praktisi atau mentor tambahan jika memungkinkan</strong><br>Selain dosen, diskusikan proposal dengan pelaku usaha atau alumni yang sudah sukses. Perspektif praktisi sangat berharga untuk bagian analisis pasar dan strategi pemasaran.</p><p><strong>3. Revisi seringkali banyak dalam waktu singkat</strong><br>Tim harus cepat beradaptasi. Bagi tugas revisi berdasarkan peran (ada yang urusan produk, ada yang urusan keuangan). Jangan semua revisi dikerjakan satu orang.</p><p><strong>4. Validasi ulang data riset setelah revisi besar</strong><br>Jika dosen meminta perubahan target pasar atau proyeksi keuangan, lakukan survei kecil atau hitung ulang. Jangan mengira-ngira. Data yang valid akan membuat proposal lebih meyakinkan.</p><p><strong>5. Pastikan legalitas usaha sesuai dengan tahapan</strong><br>Untuk tahap bertumbuh, legalitas (NIB, PIRT, Halal) harus sudah ada atau dalam proses. Konsultasikan dengan dosen dokumen legalitas apa yang paling diperlukan sesuai kategori usaha Anda.</p></div></div>`
+                },
+                "Persiapan Presentasi": {
+                    icon: "fas fa-chart-line",
+                    konten: `<div class="modul-detail-grid"><img src="${getImageForModul('Persiapan Presentasi')}"><div class="modul-text"><h3>🎤 Modul 5: Persiapan Presentasi (P2MW)</h3><p><strong>Karakteristik presentasi P2MW:</strong> Fokus pada kelayakan bisnis, potensi pasar, dan kemampuan monetisasi. Juri adalah praktisi dan akademisi yang akan menilai apakah bisnis Anda layak mendapatkan pendanaan.</p><p><strong>1. Sajikan data pasar dan proyeksi keuangan secara visual</strong><br>Gunakan grafik batang untuk proyeksi penjualan, tabel untuk BEP, diagram untuk analisis kompetitor. Juri ingin bukti bahwa Anda tidak asal membuat angka. Semakin visual, semakin mudah dipahami.</p><p><strong>2. Demonstrasikan produk prototype atau sampel</strong><br>Jika memungkinkan, bawa produk asli. Juri bisa melihat, menyentuh, atau mencicipi. Ini bukti bahwa bisnis Anda sudah berjalan, bukan sekadar ide.</p><p><strong>3. Fokus pada value proposition dan keunggulan kompetitif</strong><br>Jelaskan secara singkat: apa masalah konsumen, bagaimana produk Anda memecahkannya, dan mengapa konsumen memilih Anda daripada pesaing. Jangan buang waktu pada hal-hal yang tidak esensial.</p><p><strong>4. Latihan pitching dengan durasi 5-10 menit</strong><br>Presentasi bisnis harus lebih singkat dari PKM/PPK. Latihan dengan timer, siapkan pitch deck yang rapi. Bawa backup slide untuk pertanyaan yang mungkin muncul.</p><p><strong>5. Siapkan data pendukung yang bisa ditunjukkan cepat</strong><br>Juri mungkin meminta bukti omzet, jumlah pelanggan, atau legalitas. Siapkan di laptop atau cetakan kecil. Jangan sampai "saya lupa bawa" atau "itu ada di proposal".</p></div></div>`
+                }
+            }
+        };
+
+        // === Inisialisasi resource tabs ===
+        function initResourceTabs() {
+            const tabs = document.querySelectorAll('.resource-tab');
+            const panels = document.querySelectorAll('.resource-panel');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.getAttribute('data-tab');
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    panels.forEach(panel => panel.classList.remove('active-panel'));
+                    if (target === 'pkm') document.getElementById('panelPKM').classList.add('active-panel');
+                    else if (target === 'ppk') document.getElementById('panelPPK').classList.add('active-panel');
+                    else if (target === 'p2mw') document.getElementById('panelP2MW').classList.add(
+                    'active-panel');
+                });
+            });
+        }
+
+        // === Download sertifikat ===
+        function downloadSertifikat() {
+            const element = document.getElementById('certificateContainer');
+            const opt = { margin: [0.5, 0.5, 0.5, 0.5], filename: `Sertifikat_${currentUser}_E-Learning_FRI.pdf`,
+                image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'in',
+                    format: 'a4', orientation: 'landscape' } };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        window.onload = () => showPage("login");
+    </script>
+</body>
+</html>
